@@ -1,0 +1,4 @@
+This is just a proof of concept project to look into the feasability of using Capybara without a Rack app. I pretty much wanted to be able to just point it at a URL on the web or local network and go.
+
+1. To install just run gem install bundler if you don't already have it.
+2. Now go to the project directory in your terminal and run rake or rake test
