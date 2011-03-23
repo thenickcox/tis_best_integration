@@ -1,14 +1,20 @@
-require 'test/unit'
+require 'minitest/pride'
+require 'minitest/unit'
 require 'capybara'
+require 'capybara/dsl'
 
 Capybara.app_host = 'http://google.com'
+
 Capybara.run_server =false
+Capybara.default_wait_time = 15
 
 Capybara.register_driver :selenium_chrome do |app|
   Capybara::Driver::Selenium.new(app, :browser => :chrome)
 end
 
-class TestBase < Test::Unit::TestCase
+MiniTest::Unit.autorun
+
+class TestBase < MiniTest::Unit::TestCase
 
   def new_session(driver = :selenium)
     session = Capybara::Session.new(driver)	  
@@ -30,12 +36,4 @@ class Capybara::Session
     find(element).visible?
   end
   
-  def login
-    click_link "Sign in"
-    fill_in "Email", :with => 'your_account@gmail.com'
-    fill_in "Passwd", :with => 'password'
-    click_link "signIn" 
-    assert page_contains('Your Name')
-  end
-
 end
