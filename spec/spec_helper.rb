@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/dsl'
 require 'rspec'
+require 'capybara/poltergeist'
 
 Capybara.app_host = 'http://tisbest.org'
 
@@ -12,7 +13,7 @@ Capybara.register_driver :selenium_chrome do |app|
 end
 
 def new_session(driver = :selenium)
-  session = Capybara::Session.new(driver)
+  Capybara::Session.new(driver)
 end
 
 RSpec.configure do |config|

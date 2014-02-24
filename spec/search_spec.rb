@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe 'Tis Best Site' do
   describe 'basic nav' do
-    let(:page) { new_session }
+    let(:page) { new_session(:poltergeist) }
     before do
       page.visit '/'
     end
