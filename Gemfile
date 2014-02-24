@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'capybara', '>=0.4.1.2'
-gem 'rake', '>=0.8.7'
-gem 'minitest', '>=2.0.2'
+gem 'capybara', '~>2.0'
+gem 'selenium-webdriver'
+gem 'rspec', '~>3.0.0.beta1'

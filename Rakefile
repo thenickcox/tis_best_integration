@@ -1,10 +1,7 @@
-require 'rake/testtask'
+require 'rspec/core/rake_task'
 
-task 'default' => ['test']
-
-task 'test' => ['search-tests']
-
-Rake::TestTask.new do |t|
-  t.name = 'search-tests'
-  t.test_files = FileList['test/test_search.rb']
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.fail_on_error = false
 end
+
+task :default => :spec
