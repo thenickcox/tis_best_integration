@@ -9,7 +9,11 @@ Capybara.run_server = false
 Capybara.default_wait_time = 15
 
 Capybara.register_driver :selenium_chrome do |app|
-  Capybara::Driver::Selenium.new(app, :browser => :chrome)
+  Capybara::Driver::Selenium.new(app, browser: :chrome)
+end
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, timeout: 45)
 end
 
 def new_session(driver = :selenium)
